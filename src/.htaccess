@@ -1,0 +1,12 @@
+# Para hostings con Apache (equivale a las reglas de nginx/default.conf)
+Options -Indexes
+DirectoryIndex index.php
+
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+RedirectMatch 404 ^/includes/
+RedirectMatch 404 /\.(?!well-known)

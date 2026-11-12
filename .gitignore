@@ -1,0 +1,3 @@
+# Mensajes reales del formulario: no subirlos al repo
+data/*
+!data/.gitkeep
