@@ -1,0 +1,20 @@
+{
+    "name": "LISHU-IT web (PHP 8.3)",
+    "image": "mcr.microsoft.com/devcontainers/php:8.3",
+    "forwardPorts": [8000],
+    "portsAttributes": {
+        "8000": {
+            "label": "Web LISHU-IT",
+            "onAutoForward": "openBrowser"
+        }
+    },
+    "postAttachCommand": "php -S 0.0.0.0:8000 -t src router.php",
+    "customizations": {
+        "codespaces": {
+            "openFiles": ["README.md"]
+        },
+        "vscode": {
+            "extensions": ["bmewburn.vscode-intelephense-client"]
+        }
+    }
+}

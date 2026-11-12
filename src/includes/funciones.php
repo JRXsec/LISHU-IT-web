@@ -5,6 +5,13 @@ function e(string $texto): string
     return htmlspecialchars($texto, ENT_QUOTES, 'UTF-8');
 }
 
+// Longitud de un texto en caracteres (UTF-8). No depende de la extensión mbstring,
+// que en PHP para Windows viene desactivada por defecto.
+function largo(string $texto): int
+{
+    return function_exists('mb_strlen') ? mb_strlen($texto, 'UTF-8') : (int)preg_match_all('/./us', $texto);
+}
+
 // Iconos SVG en línea (trazo, estilo "lucide")
 function icono(string $nombre): string
 {
@@ -34,6 +41,17 @@ function icono(string $nombre): string
         'camera'     => '<path d="m16 13 6 4V7l-6 4"/><rect x="2" y="6" width="14" height="12" rx="2"/>',
         'bulb'       => '<path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V16h8v-1.3A7 7 0 0 0 12 2z"/>',
         'clock'      => '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+        'bug'        => '<rect x="8" y="6" width="8" height="14" rx="4"/><path d="M12 20v-9M9 3l1.5 3M15 3l-1.5 3M3 13h5M16 13h5M4 7l4 2M20 7l-4 2M4 19l4-2M20 19l-4-2"/>',
+        'gauge'      => '<path d="M12 14l4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0z"/>',
+        'activity'   => '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
+        'file'       => '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/>',
+        'award'      => '<circle cx="12" cy="8" r="6"/><path d="M8.2 13.2 7 22l5-3 5 3-1.2-8.8"/>',
+        'pin'        => '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/>',
+        'arrow'      => '<path d="M5 12h14M13 6l6 6-6 6"/>',
+        'quote'      => '<path d="M3 21c3 0 7-1 7-8V5H3v8h4M14 21c3 0 7-1 7-8V5h-7v8h4"/>',
+        'linkedin'   => '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/>',
+        'alert'      => '<path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/>',
+        'logout'     => '<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>',
     ];
     $svg = $paths[$nombre] ?? $paths['shield'];
     return '<svg class="icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' . $svg . '</svg>';

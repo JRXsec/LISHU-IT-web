@@ -21,10 +21,13 @@ services:
     container_name: lishu-php
     volumes:
       - ./src:/var/www/html
-      - ./data:/var/www/data
+      - lishu-data:/var/www/data   # mensajes del formulario (volumen persistente)
     networks:
       - lishu-net
     restart: unless-stopped
+
+volumes:
+  lishu-data:
 
 networks:
   lishu-net:

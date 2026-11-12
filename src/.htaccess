@@ -1,6 +1,7 @@
-# Para hostings con Apache (equivale a las reglas de nginx/default.conf)
+# Para hostings con Apache (equivale a nginx/default.conf y router.php)
 Options -Indexes
 DirectoryIndex index.php
+ErrorDocument 404 /404.php
 
 <IfModule mod_headers.c>
     Header always set X-Frame-Options "SAMEORIGIN"
@@ -8,5 +9,5 @@ DirectoryIndex index.php
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
-RedirectMatch 404 ^/includes/
+RedirectMatch 404 /includes/
 RedirectMatch 404 /\.(?!well-known)
