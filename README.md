@@ -2,54 +2,76 @@
 
 Web de **LISHU-IT**, empresa ficticia de ciberseguridad y auditoría de dispositivos IoT. Proyecto de fin de curso.
 
-[![Abrir en GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/JRXsec/LISHU-IT-web?quickstart=1)
+Hay dos formas de verla. **No hace falta tener nada descargado de antes.**
 
 ---
 
-## Opción 1 · Verla en el navegador sin instalar nada (la más fácil)
+## Opción A · Abrirla en el navegador (no se descarga ni se instala nada)
 
-1. Inicia sesión en GitHub (la cuenta es gratis).
-2. Pulsa el botón **"Open in GitHub Codespaces"** de arriba.
-   También puedes ir al botón verde **Code → pestaña Codespaces → Create codespace on main**.
-3. Espera 1-2 minutos. La web se abre sola en una pestaña nueva.
-   - Si no se abre: abajo, pestaña **PORTS** → puerto **8000** → icono del globo 🌐.
+La web se ejecuta en un ordenador de GitHub y tú la ves en tu navegador.
 
-## Opción 2 · Descargarla y abrirla en tu PC
+1. Entra en <https://github.com> e inicia sesión. Si no tienes cuenta, créala, es gratis.
+2. Haz clic en este enlace: 👉 **[Abrir la web en Codespaces](https://codespaces.new/JRXsec/LISHU-IT-web?quickstart=1)**
+3. Pulsa el botón verde **Create codespace**.
+4. Espera 1-2 minutos mientras se prepara. Se abre un editor de código y, poco después, **la web en una pestaña nueva**.
+   - Si la pestaña no se abre sola: en la parte de abajo del editor, pulsa la pestaña **PORTS**, busca el puerto **8000** y pulsa el icono del globo 🌐.
+   - Si el navegador bloquea la ventana emergente, permítela.
 
-**1. Instala PHP** (solo la primera vez):
+Cuando termines, cierra la pestaña. Se apaga solo al rato.
 
-| Sistema | Comando |
-|---|---|
-| Windows | `winget install PHP.PHP.8.3` (después abre una terminal nueva) |
-| macOS | `brew install php` |
-| Ubuntu / Debian | `sudo apt install php-cli` |
+---
 
-**2. Descarga el proyecto**: botón verde **Code → Download ZIP** y descomprímelo.
-O, si usas git:
+## Opción B · Descargarla y abrirla en tu ordenador
 
-```bash
-git clone https://github.com/JRXsec/LISHU-IT-web.git
+### 1. Descarga la web
+
+Haz clic aquí: 👉 **[Descargar LISHU-IT-web.zip](https://github.com/JRXsec/LISHU-IT-web/archive/refs/heads/main.zip)**
+
+Descomprime el ZIP (clic derecho → **Extraer todo**). Te queda una carpeta llamada **`LISHU-IT-web-main`**.
+
+### 2. Instala PHP (solo la primera vez)
+
+PHP es el programa que hace funcionar la web.
+
+- **Windows:** abre el menú Inicio, escribe `terminal`, ábrela y pega esto:
+  ```
+  winget install PHP.PHP.8.3
+  ```
+  Cuando termine, **cierra la terminal**.
+- **macOS:** en la Terminal: `brew install php`
+- **Linux (Ubuntu/Debian):** en la terminal: `sudo apt install php-cli`
+
+### 3. Abre una terminal dentro de la carpeta
+
+- **Windows:** entra en la carpeta `LISHU-IT-web-main` (la que tiene dentro `src`, `README.md`…), haz **clic derecho en un hueco vacío → Abrir en Terminal**.
+- **macOS / Linux:** abre la terminal, escribe `cd ` (con un espacio) y arrastra la carpeta a la ventana. Pulsa Enter.
+
+### 4. Arranca la web
+
+En esa terminal, pega esto y pulsa Enter:
+
 ```
-
-**3. Abre una terminal dentro de la carpeta del proyecto** y arranca la web:
-
-```bash
 php -S localhost:8000 -t src router.php
 ```
 
-**4. Abre** <http://localhost:8000> en el navegador.
-Para pararla, pulsa `Ctrl + C` en la terminal.
+Si sale algo como `Development Server (http://localhost:8000) started`, ya está.
 
-## Opción 3 · Con Docker
+### 5. Ábrela
 
-Con Docker Desktop abierto, dentro de la carpeta del proyecto:
+Entra en 👉 <http://localhost:8000> con tu navegador.
 
-```bash
-docker compose up -d --build
-```
-
-Abre <http://localhost:8080>. Para pararla: `docker compose down`.
+Mientras la terminal esté abierta, la web funciona. Para apagarla, pulsa `Ctrl + C` en la terminal o ciérrala.
 
 ---
 
-🔑 Panel interno con los mensajes del formulario: `/admin.php` · contraseña `lishu2026`
+### ¿Algo no va?
+
+| Problema | Solución |
+|---|---|
+| `php no se reconoce como un comando` | Cierra la terminal y abre una nueva (paso 3). Si sigue, repite el paso 2. |
+| `Could not open input file: router.php` | La terminal no está en la carpeta correcta. Repite el paso 3 dentro de `LISHU-IT-web-main`. |
+| `Address already in use` | Ya la tienes abierta en otra terminal. Usa esa o ciérrala. |
+
+---
+
+🔑 Panel interno con los mensajes del formulario de contacto: `/admin.php` · contraseña `lishu2026`
