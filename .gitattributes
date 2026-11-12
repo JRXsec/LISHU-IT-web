@@ -1,0 +1,4 @@
+# Saltos de línea LF siempre (evita que bash/Docker fallen al clonar en Windows)
+* text=auto eol=lf
+*.png binary
+*.jpg binary
